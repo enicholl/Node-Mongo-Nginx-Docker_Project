@@ -1,0 +1,36 @@
+extends layout
+
+block content
+         -data = data || {}
+
+         if errors
+           ul
+             for error in errors
+               li= error.msg
+
+         form(action="." method="POST")
+           label(for="firstname") FirstName:
+           input(
+             type="text"
+             name="firstname"
+             placeholder="Enter First Name"
+             value=data.firstname
+           )
+
+           label(for="surname") Surname:
+           input(
+             type="text"
+             name="surname"
+             placeholder="Enter Surname"
+             value=data.surname
+           )
+
+           label(for="location") Location:
+           input(
+             type="text"
+             name="location"
+             placeholder="Enter Location"
+             value=data.location
+           )
+
+           input(type="submit" value="Submit")
