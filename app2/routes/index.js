@@ -50,3 +50,5 @@ router.get('/registrations', (req, res) => {
 });
 
 module.exports = router;
+
+
