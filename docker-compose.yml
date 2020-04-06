@@ -4,15 +4,21 @@ services:
   nginx:
     container_name: mynginx
     restart: always
-    image: myfinalnginx
+    image: nginx7
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/ssl/certs:/etc/nginx/certs
+      - /etc/ssl/private:/etc/nginx/certs/private
   app:
     container_name: newapp
     restart: always
-    image: newapp
+    image: finalapp
     ports:
       - "3000:3000"
+    volumes:
+      - /home/lizzy/project1/app2:/app
     links:
       - mongo
   mongo:

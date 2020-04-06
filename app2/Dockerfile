@@ -5,13 +5,11 @@ RUN apt-get upgrade -y
 
 WORKDIR /app
 
-COPY package.json package.json
 RUN npm install
-RUN npm install pug
-RUN npm install pug-cli -g
-COPY . /app
 
 EXPOSE 3000
+
+RUN npm install pug -g
 
 CMD [ "npm", "run", "watch" ]
 
